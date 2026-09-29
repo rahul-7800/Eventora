@@ -13,7 +13,14 @@ const User = require('./models/User');
 
 const app = express();
 
-app.use(cors());
+const cors = require("cors");
+
+app.use(
+    cors({
+        origin: "https://eventora-client-1o2s.onrender.com",
+        credentials: true,
+    })
+);
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
